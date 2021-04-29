@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+	<script type="text/javascript" src="code.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cifrado Base64</title>
+	<style type="text/css">
+		@import url("../webfonts/Precious/stylesheet.css");
+		@import url("../webfonts/BLKCHCRY/stylesheet.css");
+	
+  	*{margin: 0; border: 0;}
+		body,td,th {
+      font-size: 24px;
+      font-style: normal;
+      text-align: center;
+      color: #000000;
+		}
+		
+    body{
+      background-image: url("../cifradobase64/galeria/fondo-1364x1200.jpg");
+      background-repeat: no-repeat;
+		background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+      color: #FFFFFF;
+      font-style: normal;
+      font-weight: normal;
+      text-align: justify;
+      background-color: #000000;
+		}
+		
+    li{
+			list-style: none; 
+			display: inline-block;
+		}
+		
+    nav{
+			width: 100%;
+			background: white;
+			padding-bottom: 75px;
+			opacity: 0.5;
+		}
+		
+    a{
+			text-decoration: none;
+			color: #000000;
+			font-style: normal;
+			font-weight: bold;
+			font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+		}
+		
+    button{
+			color: white;
+			background-color: midnightblue;
+			width: 250px;
+			height: 35px;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+			font-size: 20px;
+		}
+		
+    button a{
+			color: white;
+		}
+		
+    input[type=submit]{
+			width: 300px;
+			height: 35px;
+			background: #00349E;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+			color: aliceblue;
+			border: solid 2px #FFFFFF;
+			font-size: 20px;
+		}
+		
+    textarea{
+			width: 370px;
+			height: 70px;
+			margin-top: 10px;
+		}
+		
+    input[type=reset]{
+			width: 300px;
+			height: 35px;
+			background: #00349E;
+			font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+			color: aliceblue;
+			border: solid 2px #FFFFFF;
+			font-size: 20px;
+		}
+		
+    footer{
+      position: fixed;
+      bottom: 0;
+      clear: both;
+      width: 100%;
+      height: 40px;
+      background: black;
+      justify-content: center;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+		}
+	</style>
+
+	<link href="../css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+	<link href="../webfonts/FontleroyBrownNF/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <nav>
+	  <table width="900" border="0" align="right" cellpadding="10" cellspacing="10">
+      <tbody>
+        <tr style="font-size: 24px">
+          <td width="100" height="40" align="center" valign="middle"><a href="../cifradobase64/index.html" target="_self">Inicio</a></td>
+          <td width="100" align="center" valign="middle">&nbsp;</td>
+          <td width="100" align="center" valign="middle" style="color: #FFFFFF">&nbsp;</td>
+          <td width="100" align="center" valign="middle"><a href="../cifradobase64/cifrar.html">Cifrar</a></td>
+          <td width="50" align="center" valign="middle">&nbsp;</td>
+          <td width="50" align="center" valign="middle">&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+  </nav>
+  <center>
+	<h1>&nbsp;</h1>
+    <h1><span style="text-align: center; color: #000000; font-family: FontleroyBrownNF; font-size: 65px;">Cifrado Base64</span><br>
+    </h1>
+    <p>&nbsp;</p>
+    <p style="color: #000000">
+        <label for="textarea" style="font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif">&nbsp;<span style="text-align: center; font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', 'Arial Black', sans-serif; font-size: 24px;">Escriba el texto que desea cifrar</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+        </span></label>
+	<p>&nbsp;</p>
+        <span style="text-align: center">
+        <textarea></textarea>
+    	</span>
+	</p>
+	<p>&nbsp;</p>
+    <textarea id="resultado"></textarea>
+      <p>&nbsp;</p>
+    <p>&nbsp;</p>
+      <p>
+		  <button type="submit" onclick="encriptar(this)">Encriptar</button>
+        <button type="submit" onclick="desencriptar(this)">Desencriptar</button>
+      </p>
+      <p>&nbsp;</p>
+	
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+  </center>
+
+  <footer>
+    <p style="font-family: Consolas, 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Courier New', monospace; font-size: 12px;"><span style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif">&copy;Equipo 8 Virología y Criptografía</span></p>
+    <p style="font-family: Consolas, 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Courier New', monospace; font-size: 12px;"><span style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, sans-serif"> Todos los derechos reservados</span> </p>
+  </footer>
+</body>
+</html>
